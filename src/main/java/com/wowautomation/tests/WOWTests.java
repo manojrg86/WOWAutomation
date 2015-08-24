@@ -9,7 +9,7 @@ public class WOWTests extends SeleniumTestPlan {
 	
 	@Test
 	public void LoginTest() throws Exception{
-		new Page().HomePage()
+		new Page(true).HomePage()
 		.goToHomePage()
 		.LoginPage();
 	}

@@ -8,7 +8,7 @@
 
     <parameter name="appURL" value="http://52.11.22.184:8080/login"/>
     <parameter name="browser" value="*chrome" />  <!--"*firefox, *chrome, *iexplore"-->
-    <parameter name="runMode" value="LOCAL" /> <!--LOCAL or ExistingGrid -->
+    <parameter name="runMode" value="ExistingGrid" /> <!--LOCAL or ExistingGrid -->
     <!--if parameter runMode is set to ExistingGrid then parameter webDriverGrid should have value set to system running grid
 
     To start grid on a machine use following command -
@@ -39,7 +39,6 @@
     <parameter name="useFirefoxDefaultProfile" value="false"/>
 
     <test name="Login Test">
-    <parameter name="browser" value="*firefox" /> 
         <classes>
             <class name="com.wowautomation.tests.WOWTests" />
         </classes>
