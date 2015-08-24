@@ -9,7 +9,11 @@ public class Page extends PageObject {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LoginPage getLoginPage() throws Exception{
+	public LoginPage LoginPage() throws Exception{
 		return new LoginPage();
+	}
+	
+	public HomePage HomePage() throws Exception{
+		return new HomePage();
 	}
 }
