@@ -8,7 +8,7 @@ public class HomePage extends Page {
 	}
 
 	public HomePage goToHomePage(){
-		getDriver().get("http://52.25.99.82:8080/login");
+		getDriver().manage().window().maximize();
 		return this;
 	}
 }
