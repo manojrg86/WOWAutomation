@@ -20,5 +20,30 @@ public class WOWTests extends SeleniumTestPlan {
 		.LoginPage()
 		.login(user);
 	}
-
+	
+	@Test
+	public void ParenetRegistrationTest() throws Exception{
+		
+		User user =new User();
+		user.email="jacksurname@fake.com";
+		user.password="password";
+		
+		new Page(true).HomePage()
+		.goToHomePage()
+		.LoginPage()
+		.registerParent(user);
+	}
+	
+	@Test
+	public void StudentRegistrationTest() throws Exception{
+		
+		User user =new User();
+		user.email="jacksurname@fake.com";
+		user.password="password";
+		
+		new Page(true).HomePage()
+		.goToHomePage()
+		.LoginPage()
+		.registerStudent(user);
+	}
 }

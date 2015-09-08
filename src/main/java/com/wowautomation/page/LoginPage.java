@@ -29,4 +29,22 @@ public class LoginPage extends Page {
 		CustomAssertion.assertTrue(logoutLink.isDisplayed(), "Logout is not displayed");
 		return this;
 	}
+	
+	public LoginPage registerParent(User user){
+		emailTextBox.sendKeys(user.email);
+		passwordTextBox.sendKeys(user.password);
+		signInButton.click();
+		WaitHelper.waitForSeconds(5);
+		CustomAssertion.assertTrue(logoutLink.isDisplayed(), "Logout is not displayed");
+		return this;
+	}
+	
+	public LoginPage registerStudent(User user){
+		emailTextBox.sendKeys(user.email);
+		passwordTextBox.sendKeys(user.password);
+		signInButton.click();
+		WaitHelper.waitForSeconds(5);
+		CustomAssertion.assertTrue(logoutLink.isDisplayed(), "Logout is not displayed");
+		return this;
+	}
 }
