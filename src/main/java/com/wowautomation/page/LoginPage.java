@@ -22,6 +22,7 @@ public class LoginPage extends Page {
 	public LinkElement logoutLink=new LinkElement("Logout link", By.xpath("//a[contains(.,'Log out')]"));
 	public LinkElement registerLink=new LinkElement("Register link", By.xpath("//a[contains(.,'Register')]"));
 	public LinkElement registerParentLink=new LinkElement("Parent link", By.xpath("//a[contains(.,'Parent')]"));
+	public LinkElement registerStudentLink=new LinkElement("Student link", By.xpath("//a[contains(.,'Student')]"));
 	public TextFieldElement firstNameTextBox=new TextFieldElement("First Name Text box", By.id("firstName"));
 	public TextFieldElement lastNameTextBox=new TextFieldElement("Last Name Text box", By.id("latsName"));
 
@@ -48,8 +49,12 @@ public class LoginPage extends Page {
 	}
 	
 	public LoginPage registerStudent(User user){
+		registerLink.click();
+		registerStudentLink.click();
 		emailTextBox.sendKeys(user.email);
 		passwordTextBox.sendKeys(user.password);
+		firstNameTextBox.sendKeys(user.firstName);
+		lastNameTextBox.sendKeys(user.lastName);
 		signInButton.click();
 		WaitHelper.waitForSeconds(5);
 		CustomAssertion.assertTrue(logoutLink.isDisplayed(), "Logout is not displayed");
