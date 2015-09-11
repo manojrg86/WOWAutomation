@@ -7,5 +7,6 @@ public class User {
 	public String parentEmail;
 	public String firstName;
 	public String lastName;
+	public String userName;
 
 }
