@@ -1,5 +1,7 @@
 package com.wowautomation.tests;
 
+import java.util.Date;
+
 import org.testng.annotations.Test;
 
 import com.seleniumtests.core.SeleniumTestPlan;
@@ -21,12 +23,14 @@ public class WOWTests extends SeleniumTestPlan {
 		.login(user);
 	}
 	
-	@Test
-	public void ParenetRegistrationTest() throws Exception{
+	@Test(groups={"ParentRegistrationTest"})
+	public void ParentRegistrationTest() throws Exception{
 		
 		User user =new User();
-		user.email="jacksurname@fake.com";
+		String timeStamp=new Date().getTime()+"";
+		user.email=timeStamp+"_email@fake.com";
 		user.password="password";
+		user.userName=timeStamp+"_email";
 		
 		new Page(true).HomePage()
 		.goToHomePage()
@@ -34,12 +38,14 @@ public class WOWTests extends SeleniumTestPlan {
 		.registerParent(user);
 	}
 	
-	@Test
+	@Test(groups={"StudentRegistrationTest"})
 	public void StudentRegistrationTest() throws Exception{
 		
 		User user =new User();
-		user.email="jacksurname@fake.com";
+		String timeStamp=new Date().getTime()+"";
+		user.email=timeStamp+"_email@fake.com";
 		user.password="password";
+		user.userName=timeStamp+"_email";
 		
 		new Page(true).HomePage()
 		.goToHomePage()

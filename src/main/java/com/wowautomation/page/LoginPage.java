@@ -57,8 +57,11 @@ public class LoginPage extends Page {
 		confirmEmailTextBox.sendKeys(user.email);
 		registerPasswordTextBox.sendKeys(user.password);
 		confirmpasswordTextBox.sendKeys(user.password);
+		WaitHelper.waitForSeconds(2);
+		terms.click();		
+		WaitHelper.waitForSeconds(2);
 		policy.click();
-		terms.click();
+		WaitHelper.waitForSeconds(2);
 		signUpButton.click();
 		WaitHelper.waitForSeconds(5);
 		CustomAssertion.assertTrue(logoutLink.isDisplayed(), "Logout is not displayed");
