@@ -15,5 +15,6 @@ public class TestRunner {
 		TestNG testNG = new TestNG();
 		testNG.setTestSuites(runFiles);
 		testNG.run();
+		System.out.println("Suite Completed");
 	}
 }
