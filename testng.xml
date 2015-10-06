@@ -41,7 +41,7 @@
 	<test name="Login Test">
 		<groups>
 			<run>
-				<include name="StudentRegistrationTest" />
+				<include name="Test" />
 			</run>
 		</groups>
 		<classes>
