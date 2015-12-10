@@ -10,7 +10,7 @@ import com.wowautomation.page.Page;
 
 public class WOWTests extends SeleniumTestPlan {
 	
-	@Test
+	@Test(groups={"LoginTest","Test"})
 	public void LoginTest() throws Exception{
 		
 		User user =new User();
@@ -23,7 +23,7 @@ public class WOWTests extends SeleniumTestPlan {
 		.login(user);
 	}
 	
-	@Test(groups={"ParentRegistrationTest"})
+	@Test(groups={"ParentRegistrationTest","Test"})
 	public void ParentRegistrationTest() throws Exception{
 		
 		User user =new User();
@@ -38,7 +38,7 @@ public class WOWTests extends SeleniumTestPlan {
 		.registerParent(user);
 	}
 	
-	@Test(groups={"StudentRegistrationTest"})
+	@Test(groups={"StudentRegistrationTest","Test"})
 	public void StudentRegistrationTest() throws Exception{
 		
 		User user =new User();
