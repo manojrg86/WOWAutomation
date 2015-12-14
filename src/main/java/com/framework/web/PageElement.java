@@ -59,8 +59,8 @@ public class PageElement {
 		XPATH,
 	};
 
-	private String name = null;
-	private String value = null;
+	public String name = null;
+	public String value = null;
 	LocatorType locatorType=null;
 	
 	public PageElement(String name, String value,LocatorType type) {
