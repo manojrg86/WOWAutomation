@@ -1,23 +1,15 @@
 package com.wowautomation.page;
 
-import com.seleniumtests.core.SeleniumTestsContextManager;
-import com.seleniumtests.webelements.PageObject;
+import com.framework.web.PageObject;
 
 public class Page extends PageObject {
 
-	public Page(final boolean openPageUrl) throws Exception {
-		super(null,openPageUrl ? SeleniumTestsContextManager.getThreadContext().getAppURL() : null);
-		// TODO Auto-generated constructor stub
-	}
 
-	public Page() throws Exception{
-		super(null,null);
-	}
-	public LoginPage LoginPage() throws Exception{
+	public LoginPage LoginPage(){
 		return new LoginPage();
 	}
 	
-	public HomePage HomePage() throws Exception{
+	public HomePage HomePage(){
 		return new HomePage();
 	}
 }

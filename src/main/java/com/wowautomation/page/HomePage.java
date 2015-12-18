@@ -2,13 +2,13 @@ package com.wowautomation.page;
 
 public class HomePage extends Page {
 
-	public HomePage() throws Exception {
+	public HomePage(){
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public HomePage goToHomePage(){
-		getDriver().manage().window().maximize();
+		command().goTo("http://ec2-52-11-22-184.us-west-2.compute.amazonaws.com/login#");
 		return this;
 	}
 }

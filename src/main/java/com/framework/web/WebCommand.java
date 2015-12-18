@@ -27,4 +27,8 @@ public class WebCommand {
 		TestLogger.log("Type "+value+ "in "+pageElement.name);
 		getWebElement(pageElement).sendKeys(value);
 	}
+	
+	public void goTo(String url){
+		driver.get(url);
+	}
 }
