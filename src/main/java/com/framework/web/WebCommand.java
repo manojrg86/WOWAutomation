@@ -1,5 +1,6 @@
 package com.framework.web;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -15,16 +16,28 @@ public class WebCommand {
 	
 	public WebElement getWebElement(PageElement pageElement){
 		WebElement webElement=null;
+		
+		switch (pageElement.locatorType) {
+		case XPATH:
+			webElement=driver.findElement(By.xpath(pageElement.getValue()));
+			break;
+		case ID:
+			webElement=driver.findElement(By.id(pageElement.getValue()));
+			break;
+			
+		default:
+			break;
+		}
 		return webElement;
 	}
 	
 	public void click(PageElement pageElement){
-		TestLogger.log("Click "+pageElement.name);
+		TestLogger.log("Click "+pageElement.getName());
 		getWebElement(pageElement).click();
 	}
 	
 	public void type(PageElement pageElement,String value){
-		TestLogger.log("Type "+value+ "in "+pageElement.name);
+		TestLogger.log("Type "+value+ " in "+pageElement.getName());
 		getWebElement(pageElement).sendKeys(value);
 	}
 	

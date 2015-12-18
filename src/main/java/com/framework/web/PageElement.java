@@ -13,34 +13,6 @@
 
 package com.framework.web;
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.InvalidElementStateException;
-import org.openqa.selenium.InvalidSelectorException;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.HasInputDevices;
-import org.openqa.selenium.interactions.Mouse;
-import org.openqa.selenium.internal.Locatable;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.seleniumtests.core.TestLogging;
-import com.seleniumtests.driver.BrowserType;
-import com.seleniumtests.driver.ScreenshotUtil;
-import com.seleniumtests.driver.WebUIDriver;
-import com.seleniumtests.helper.ContextHelper;
-import com.seleniumtests.helper.WaitHelper;
-import com.thoughtworks.selenium.webdriven.JavascriptLibrary;
 
 /**
  * Provides methods to interact with a web page. All HTML element (ButtonElement, LinkElement, TextFieldElement, etc.)
@@ -59,8 +31,8 @@ public class PageElement {
 		XPATH,
 	};
 
-	public String name = null;
-	public String value = null;
+	private String name = null;
+	private String value = null;
 	LocatorType locatorType=null;
 	
 	public PageElement(String name, String value,LocatorType type) {
@@ -68,4 +40,13 @@ public class PageElement {
 		this.value = value;
 		this.locatorType= type;	
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
 }
