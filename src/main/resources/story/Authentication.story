@@ -3,8 +3,7 @@ Meta:
 @themes OrderFlow
 
 Narrative:
-As a registered user ae.com
-I want to place an order
+As a user want to register to wow site
 					 
 Scenario:  The below feature is for parent registration
 Given user lands on home page
