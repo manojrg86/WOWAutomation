@@ -4,12 +4,10 @@ import java.util.Date;
 
 import org.testng.annotations.Test;
 
-import com.framework.core.SeleniumBaseTest;
 import com.wowautomation.entity.User;
 import com.wowautomation.page.Page;
 
-public class WOWTests extends SeleniumBaseTest {
-	
+public class WOWTests  {	
 	@Test(groups={"LoginTest","Test"})
 	public void LoginTest() throws Exception{
 		
@@ -17,9 +15,9 @@ public class WOWTests extends SeleniumBaseTest {
 		user.email="jacksurname@fake.com";
 		user.password="password";
 		
-		new Page().HomePage()
+		new Page().homePage()
 		.goToHomePage()
-		.LoginPage()
+		.loginPage()
 		.login(user);
 	}
 	
@@ -32,9 +30,9 @@ public class WOWTests extends SeleniumBaseTest {
 		user.password="password";
 		user.userName=timeStamp+"_email";
 		
-		new Page().HomePage()
+		new Page().homePage()
 		.goToHomePage()
-		.LoginPage()
+		.loginPage()
 		.registerParent(user);
 	}
 	
@@ -47,9 +45,9 @@ public class WOWTests extends SeleniumBaseTest {
 		user.password="password";
 		user.userName=timeStamp+"_email";
 		
-		new Page().HomePage()
+		new Page().homePage()
 		.goToHomePage()
-		.LoginPage()
+		.loginPage()
 		.registerStudent(user);
 	}
 }

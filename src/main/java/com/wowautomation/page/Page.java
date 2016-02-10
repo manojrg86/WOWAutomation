@@ -1,15 +1,15 @@
 package com.wowautomation.page;
 
-import com.framework.web.PageObject;
+import com.automation.framework.web.PageObject;
 
 public class Page extends PageObject {
 
 
-	public LoginPage LoginPage(){
+	public LoginPage loginPage(){
 		return new LoginPage();
 	}
 	
-	public HomePage HomePage(){
+	public HomePage homePage(){
 		return new HomePage();
 	}
 }

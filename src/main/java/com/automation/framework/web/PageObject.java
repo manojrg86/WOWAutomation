@@ -1,6 +1,6 @@
-package com.framework.web;
+package com.automation.framework.web;
 
-import com.framework.core.SeleniumTestContext;
+import com.automation.framework.core.SeleniumTestContext;
 
 public class PageObject {
 

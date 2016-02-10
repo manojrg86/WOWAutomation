@@ -1,10 +1,9 @@
-package com.framework.web;
+package com.automation.framework.web;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import com.framework.utils.TestLogger;
+import org.openqa.selenium.support.ui.Select;
 
 public class WebCommand {
 
@@ -32,16 +31,25 @@ public class WebCommand {
 	}
 	
 	public void click(PageElement pageElement){
-		TestLogger.log("Click "+pageElement.getName());
 		getWebElement(pageElement).click();
 	}
 	
 	public void type(PageElement pageElement,String value){
-		TestLogger.log("Type "+value+ " in "+pageElement.getName());
 		getWebElement(pageElement).sendKeys(value);
 	}
 	
 	public void goTo(String url){
 		driver.get(url);
+	}
+	
+	public void maximizeWindow(){
+		driver.manage().window().maximize();
+	}
+	
+	public void selectUsingIndex(PageElement pageElement, int index) {
+		WebElement webElement=getWebElement(pageElement);
+
+		Select select = new Select(webElement);
+		select.selectByIndex(index);
 	}
 }

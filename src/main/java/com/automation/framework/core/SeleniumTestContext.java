@@ -1,4 +1,4 @@
-package com.framework.core;
+package com.automation.framework.core;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.framework.web.WebCommand;
+import com.automation.framework.web.WebCommand;
 
 
 public class SeleniumTestContext {
