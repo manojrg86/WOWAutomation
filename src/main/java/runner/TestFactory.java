@@ -33,12 +33,12 @@ import org.junit.Test;
 
 import com.automation.framework.core.TestSetup;
 import com.thoughtworks.paranamer.NullParanamer;
+import com.wowautomation.steps.NavigationSteps;
 /*
 
 import ru.yandex.qatools.allure.Allure;
 import ru.yandex.qatools.allure.events.TestSuiteFinishedEvent;
 import ru.yandex.qatools.allure.events.TestSuiteStartedEvent;*/
-import com.wowautomation.steps.NavigationSteps;
 
 public class TestFactory extends JUnitStories {
     public static final String UUID = java.util.UUID.randomUUID().toString();

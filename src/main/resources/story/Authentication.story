@@ -1,6 +1,5 @@
 Meta:
 @author Manoj
-@themes OrderFlow
 
 Narrative:
 As a user want to register to wow site
