@@ -41,23 +41,17 @@ import ru.yandex.qatools.allure.events.TestSuiteFinishedEvent;
 import ru.yandex.qatools.allure.events.TestSuiteStartedEvent;*/
 
 public class TestFactory extends JUnitStories {
-    public static final String UUID = java.util.UUID.randomUUID().toString();
-    private static boolean dryRun;
-   // private Allure allure = Allure.LIFECYCLE;
+	public static final String UUID = java.util.UUID.randomUUID().toString();
+	private static boolean dryRun;
 	private Configuration configuration;
-	  //private final CrossReference xref = new CrossReference();
-	  
+
 	public TestFactory() {
 		super();
 		configuration = new Configuration() {
 		};
-        
+
 		Properties viewResources = new Properties();
 		viewResources.setProperty("decorateNonHtml", "true");
-		/*Class<? extends Embeddable> embeddableClass = this.getClass();		
-        ParameterConverters parameterConverters = new ParameterConverters();
-        ExamplesTableFactory examplesTableFactory = new ExamplesTableFactory(new LocalizedKeywords(),
-                new LoadFromClasspath(embeddableClass), parameterConverters);*/
 
 		configuration.useFailureStrategy(new RethrowingFailure());
 		configuration.useKeywords(new LocalizedKeywords(Locale.ENGLISH));
@@ -71,33 +65,22 @@ public class TestFactory extends JUnitStories {
 		configuration.useStepFinder(new StepFinder());
 		configuration.useStepMonitor(new SilentStepMonitor());
 		configuration
-				.useStepPatternParser(new RegexPrefixCapturingPatternParser());
+		.useStepPatternParser(new RegexPrefixCapturingPatternParser());
 		configuration.useStoryControls(new StoryControls());
 		configuration.useStoryLoader(new LoadFromClasspath());
-//		configuration.useStoryLoader(new LoadFromRelativeFile(CodeLocations.codeLocationFromClass(OMSOrderSteps.class)));
 		configuration.useStoryParser(new RegexStoryParser(configuration
 				.keywords()));
 		configuration.useStoryPathResolver(new UnderscoredCamelCaseResolver());
 		configuration.useStoryReporterBuilder(new StoryReporterBuilder()
-                 .withDefaultFormats().withPathResolver(new FilePrintStreamFactory.ResolveToPackagedName())
-                 .withFailureTrace(true).withFailureTraceCompression(true)
-                // .withReporters(new AllureReporter())
-                 .withDefaultFormats()
-                 .withFormats(Format.CONSOLE, Format.HTML, Format.XML)
-                 .withFailureTrace(false));
-                 //.withCrossReference(xref)
-                 //.withViewResources(viewResources).withFormats(Format.HTML, Format.STATS, Format.CONSOLE));
-        //.useStepMonitor(xref.getStepMonitor());     
-                 //to use CustomHtmlOutputfrom “renderTable” located in ftl/jbehave-html-output.ftl 
-                 //.withViewResources(viewResources).withFormats(CustomHtmlOutput.FORMAT, Format.STATS, Format.CONSOLE));
-                 //.withFailureTrace(true).withFailureTraceCompression(true).withCrossReference(xref));
-		//configuration.useParameterConverters(parameterConverters)
-        // use '%' instead of '$' to identify parameters
-        //.useStepPatternParser(new RegexPrefixCapturingPatternParser("%"));
-		//configuration.useViewGenerator(new FreemarkerViewGenerator())
-				
-		
- 
+				.withDefaultFormats().withPathResolver(new FilePrintStreamFactory.ResolveToPackagedName())
+				.withFailureTrace(true).withFailureTraceCompression(true)
+				.withDefaultFormats()
+				.withFormats(Format.CONSOLE, Format.HTML, Format.XML)
+				.withFailureTrace(false));
+
+
+
+
 		EmbedderControls embedderControls = configuredEmbedder()
 				.embedderControls();
 		embedderControls.doBatch(false);
@@ -112,50 +95,46 @@ public class TestFactory extends JUnitStories {
 		configuredEmbedder().useMetaFilters(metaFilters());
 
 	}
- 
+
 	public static boolean isDryRun() {
-        return dryRun;
-    }
+		return dryRun;
+	}
 
 	@Override
 	@Test
-    public void run() throws Throwable{
-        //allure.fire(new TestSuiteStartedEvent(UUID, "oms"));
-        try {
-            super.run();
-        } catch (Throwable ignored) {
-        }
-      //  allure.fire(new TestSuiteFinishedEvent(UUID));
-    }
-    
+	public void run() throws Throwable{
+		try {
+			super.run();
+		} catch (Throwable ignored) {
+		}
+	}
+
 	@Override
 	public Configuration configuration() {
-		
+
 		return configuration;
 	}
 
 	@Override
 	public List<CandidateSteps> candidateSteps() {
-		/*return new InstanceStepsFactory(configuration(), new JBehaveTest())
-				.createCandidateSteps();*/
 		return new InstanceStepsFactory(configuration(),new TestSetup(), new NavigationSteps())
 				.createCandidateSteps();
 	}
-	
+
 	@Override
 	public InjectableStepsFactory stepsFactory() {
 		return new InstanceStepsFactory(configuration(),new TestSetup(), new NavigationSteps());
 	}
 
 	protected List<String> metaFilters() {
-        return  Arrays.asList("+author *", "+theme *","-skip");
-    }
-	
+		return  Arrays.asList("+author *", "+theme *","-skip");
+	}
+
 	@Override
 	protected List<String> storyPaths() {
 		return Arrays
 				.asList("story/Authentication.story");
 	}
 
-	
+
 }
